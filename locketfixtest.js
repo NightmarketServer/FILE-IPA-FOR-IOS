@@ -39,5 +39,16 @@ if (match) {
   obj.subscriber.subscriptions["com.locket02.premium.yearly"] = locket02;
   obj.subscriber.entitlements.pro = locket01;
 }
+// >>> Debug badge (chỉ để hiển thị trong logs / debug UI, KHÔNG thay đổi subscription)
+obj.debug_ui = obj.debug_ui || {};
+obj.debug_ui.locketGoldBadge = {
+  type: "heart-ring",            // kiểu hiển thị -- "heart-ring" = trái tim vòng quanh avatar
+  color: "#FFD54A",             // vàng
+  heartEmoji: "💛",             // icon trái tim vàng
+  ringThickness: 6,             // độ dày vòng (px) — UI demo có thể dùng
+  enabled: true,
+  note: "DEBUG: Chỉ hiển thị nội bộ cho mục đích test; không thay đổi quyền entitlements"
+};
 
 $done({ body: JSON.stringify(obj) });
+
